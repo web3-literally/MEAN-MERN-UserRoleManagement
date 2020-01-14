@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/head.ejs %>
+
+<body data-sa-theme="4">
+<% include ../partials/header.ejs %>
+<% include ../partials/sidebar.ejs %>
+
+<section class="content">
+    <div class="content__inner">
+        <header class="content__title">
+            <h1>Welcome <%=user.username%>!</h1>
+        </header>
+    </div>
+</section>
+
+<% include ../partials/footer.ejs %>
+<% include ../partials/foot.ejs %>
+
+</body>
+</html>

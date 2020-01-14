@@ -1,0 +1,39 @@
+<aside class="sidebar ">
+    <div class="scrollbar">
+        <div class="user">
+            <div class="user__info">
+                <img class="user__img" src="<%= user.avatar %>" alt="MotorCut Logo">
+                <div style="word-break: break-all">
+                    <div class="user__name"><%= user.username %></div>
+                    <div class="user__email"><%= user.email %></div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="navigation">
+            <% if(session.user.role == 0 || session.user.role == 1) { %>
+                <li class="<%= (tab_text == 'admin_dashboard')?'navigation__active':'' %>">
+                    <a href="/admin/dashboard"><i class="zwicon-home"></i> <%= i18n.__('Dashboard') %></a>
+                </li>
+
+                <li class="<%= (tab_text == 'admin_client_management')?'navigation__active':'' %>">
+                    <a href="/admin/client-management"><i class="zwicon-stand-up"></i> <%= i18n.__('Client Management') %></a>
+                </li>
+            <% }%>
+
+            <% if(session.user.role == 0 || session.user.role == 2) { %>
+                <li class="<%= (tab_text == 'user_dashboard')?'navigation__active':'' %>">
+                    <a href="/dashboard"><i class="zwicon-home"></i> <%= i18n.__('Dashboard') %></a>
+                </li>
+            <% }%>
+
+            <li class="<%= (tab_text === 'settings')?'navigation__active':'' %>">
+                <a href="/admin/account-settings"><i class="zwicon-cog"></i> <%= i18n.__('Account Settings') %></a>
+            </li>
+
+            <li>
+                <a href="/auth/logout"><i class="zwicon-arrow-circle-right"></i> <%= i18n.__('Logout') %></a>
+            </li>
+        </ul>
+    </div>
+</aside>
